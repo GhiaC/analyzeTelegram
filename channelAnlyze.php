@@ -7,8 +7,8 @@ $database = new Medoo\Medoo([
     'database_type' => 'mysql',
     'database_name' => 'teleCrawler',
     'server' => 'localhost',
-    'username' => 'root',
-    'password' => '',
+    'username' => 'ghiac',
+    'password' => 'mghiac!@#$3_',
     'charset' => 'utf8',
     'port' => 3306,
 //    'prefix' => 'PREFIX_',
@@ -348,7 +348,7 @@ else {
 </header>
 
 <div class="channelprof">
-    <img src="channel_profile/bestper.jpg" alt="Adminan">
+    <img src="profile/<?php echo $channel[0]['Cusername']; ?>.jpg" alt="<?php echo $channel[0]['Cusername']; ?>">
 </div>
 
 <div class="section padtopch bg-white" id="features">
@@ -558,7 +558,14 @@ else {
                             <div class="media-body">
                                 <h4 class="card-title px18h4">ارزش پولی کانال </h4>
                                 <p class="card-textsub">ارزش پولی کانال به تومان</p>
-                                <h3 class="analyzeadd dirltr">1,130,000,000</h3>
+                                <h3 class="analyzeadd dirltr">
+                                    <?php
+                                    if ($weekStatus)
+                                        echo $result3['AWactive_member'] * 450;
+                                    else
+                                        echo 'هنوز انالیزی انجام نشده';
+                                    ?>
+                                </h3>
                             </div>
                         </div>
                     </div>
