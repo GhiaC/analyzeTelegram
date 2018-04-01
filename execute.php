@@ -3,7 +3,7 @@ define("TABLE_DAY", "analyze_day");
 define("TABLE_WEEK", "analyze_week");
 
 require 'Medoo.php';
-require_once "jdf.php";
+require './jdf.php';
 
 //use Medoo\Medoo;
 date_default_timezone_set("Asia/Tehran");
@@ -22,7 +22,7 @@ $database = new Medoo\Medoo([
 $Jdate = jdate("Y-m-d", strtotime("-1 days"));
 $channels = $database->select("channels", ["Cid", "channel_id"], [
     "AND" => [
-        "ClastCheck[!]" => [$Jdate, "CHECK"]
+        "ClastCheck[!]" => [$Jdate]
     ]
 ]);
 foreach ($channels as $channel) {
